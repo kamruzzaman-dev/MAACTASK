@@ -4,6 +4,7 @@ import LogIn from "../pages/LogIn";
 import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
 import App from "../App";
+import RegionList from "../pages/Dashboard/Region/reginList";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "region",
-        element: <LogIn />,
+        element: <RegionList />,
       },
       {
         path: "area",
