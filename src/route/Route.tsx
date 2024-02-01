@@ -3,11 +3,18 @@ import LandingPage from "../pages/LandingPage";
 import LogIn from "../pages/LogIn";
 import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
+import App from "../App";
 
 const router = createBrowserRouter([
-  { path: "/", element: <LandingPage /> },
-  { path: "/log-in", element: <LogIn /> },
-  { path: "/register-in", element: <Register /> },
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      { path: "/", element: <LandingPage />, },
+      { path: "/log-in", element: <LogIn /> },
+      { path: "/register", element: <Register /> },
+    ],
+  },
   { path: "/dashboard", element: <Dashboard /> },
 ]);
 

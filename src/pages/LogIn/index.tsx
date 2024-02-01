@@ -1,9 +1,20 @@
-const LogIn = () => {
+import LoginForm from "../../component/form/loginForm";
+
+const Login = () => {
   return (
-    <div className="main-container">
-      <h1>LogIn page</h1>
+    <div className="main-bg">
+      {/* Register form */}
+      <div
+        style={{
+          paddingTop: "112px",
+
+          paddingBottom: "120px",
+        }}
+      >
+        <LoginForm />
+      </div>
     </div>
   );
 };
 
-export default LogIn;
+export default Login;
