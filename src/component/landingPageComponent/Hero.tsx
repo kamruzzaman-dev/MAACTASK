@@ -19,12 +19,12 @@ const Hero = () => {
                         gap: "36px"
                     }}>
                     <h1 style={{
+                        fontSize: "58px",
+                        fontWeight: 700,
                         color: "#0B141F",
                         textAlign: "center",
                         fontFamily: "Manrope",
-                        fontSize: "56px",
                         fontStyle: "normal",
-                        fontWeight: "700",
                         lineHeight: "100%",
                         maxWidth: " 850px"
                     }}>
@@ -37,13 +37,12 @@ const Hero = () => {
                                 color: "white",
                                 backgroundColor: "#0052CC",
                                 borderRadius: "8px",
-                                fontSize: "14px",
+                                fontSize: "20px",
                                 fontStyle: "normal",
-                                fontWeight: 500,
+                                fontWeight: 700,
                                 lineHeight: "150%",
                                 padding: "12px 24px",
-                                height: "56px",
-                                width: "200px",
+                                height: "65px",
                                 textAlign: "center",
                             }}
                         >
@@ -54,13 +53,12 @@ const Hero = () => {
                                 color: "#0052CC",
                                 backgroundColor: "white",
                                 borderRadius: "8px",
-                                fontSize: "14px",
+                                fontSize: "20px",
                                 fontStyle: "normal",
-                                fontWeight: 500,
+                                fontWeight: 700,
                                 lineHeight: "150%",
                                 padding: "12px 24px",
-                                height: "56px",
-                                width: "130px",
+                                height: "65px",
                                 textAlign: "center",
                                 border: "1px solid #0052CC",
                                 boxShadow: "0 2px 5px #C2D2EB",

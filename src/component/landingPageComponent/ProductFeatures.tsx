@@ -3,19 +3,21 @@ import mobileFeature from '../../assets/image/mobileFeature.png';
 
 const ProductFeatures = () => {
     return (
-        <div style={{ minHeight: "100vh", paddingTop: "100px" }}>
+        <div style={{
+            minHeight: "100vh",
+            padding: "114px 0 44px"
+        }}>
             <hr style={{ border: "1px solid #C2D2EB" }} />
             <div style={{ paddingTop: "50px", width: "100%", display: "flex", flexDirection: "column", justifyContent: "center" }}>
                 <p style={{
                     textAlign: "center",
-                    fontSize: "18px",
-                    fontStyle: "normal",
-                    fontWeight: "500",
-                    color: "#0052CC"
+                    fontSize: "20px",
+                    fontWeight: 500,
+                    color: "#0052CC",
                 }}>Product Features</p>
                 <h2 style={{
                     textAlign: "center",
-                    fontSize: "44px",
+                    fontSize: "48px",
                     fontStyle: "normal",
                     fontWeight: "700",
                 }}>Make more out of your data</h2>

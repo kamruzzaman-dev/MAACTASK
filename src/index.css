@@ -28,10 +28,26 @@ code {
   background-image: url(./assets/image/main-bg.png);
   background-size: "cover";
   background-position: "center";
+  background-repeat: "no-repeat";
 }
 
 .common-bg {
   background-image: url(./assets/image/common.png);
   background-size: "cover";
   background-position: "center";
+  background-repeat: "no-repeat";
+}
+
+.about-bg {
+  background-image: url(./assets/about-bg.png);
+  background-size: "cover";
+  background-position: "center";
+  background-repeat: "no-repeat";
+}
+
+.faq-bg {
+  background-image: url(./assets/faq-bg.png);
+  background-size: "cover";
+  background-position: "center";
+  background-color: #0052cc;
 }
