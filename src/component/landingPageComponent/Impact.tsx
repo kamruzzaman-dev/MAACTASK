@@ -7,14 +7,14 @@ import Treva from '../../assets/icon/Treva.png';
 const Impact = () => {
 
     return (
-        <div className='main-container' style={{ padding: "70px" }}>
+        <div className='main-container' style={{ padding: "120px" }}>
             <h2 style={{
                 textAlign: "center",
                 fontSize: "36px",
                 fontStyle: "normal",
                 fontWeight: "400",
                 color: "#0052CC",
-                paddingBottom: "30px",
+                paddingBottom: "50px",
                 textTransform:"capitalize"
             }}>5,000+ high-impact teams rely on Fieldx</h2>
             <div style={{ display: "flex", justifyContent: "space-evenly" }}>

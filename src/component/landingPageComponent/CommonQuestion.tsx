@@ -1,3 +1,4 @@
+import Faq from "../shareComponent/Faq";
 
 const CommonQuestion = () => {
     return (
@@ -18,6 +19,7 @@ const CommonQuestion = () => {
                         fontWeight: "700",
                         color: "#ddd"
                     }}>Frequently asked questions</h2>
+                    <Faq/>
                 </div>
             </div>
         </div>
