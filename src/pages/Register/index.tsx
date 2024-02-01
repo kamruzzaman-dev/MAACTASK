@@ -1,7 +1,18 @@
+import RegisterForm from "../../component/form/registerForm";
+
 const Register = () => {
     return (
-        <div>
-            <h1>Register</h1>
+        <div className="main-bg">
+            {/* Register form */}
+            <div
+                style={{
+                    paddingTop: "112px",
+
+                    paddingBottom: "120px",
+                }}
+            >
+                <RegisterForm />
+            </div>
         </div>
     );
 };
