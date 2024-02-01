@@ -242,7 +242,7 @@ const RegisterForm = () => {
       >
         Already have an account?{" "}
         <Link
-          to="/sign-in"
+          to="/log-in"
           style={{ color: "#0052CC", textDecoration: "none" }}
         >
           Sign In

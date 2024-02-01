@@ -126,7 +126,7 @@ const LoginForm = () => {
             >
                 Don’t have any account?{" "}
                 <Link
-                    to="/sign-up"
+                    to="/register"
                     style={{ color: "#0052CC", textDecoration: "none" }}
                 >
                     Sign Up
