@@ -3,7 +3,7 @@ import phone from "../../assets/image/phone.png";
 
 const TabletAndMobileShowing = () => {
     return (
-        <div style={{ height: "100vh" }}>
+        <div style={{ paddingBottom: "50px" }}>
             <div className="main-container" style={{
 
                 position: "relative",
@@ -15,7 +15,6 @@ const TabletAndMobileShowing = () => {
                 }} src={tablet} alt="Logo" />
                 <img style={{ position: "absolute", bottom: "-50px", right: "200px" }} src={phone} alt="Logo" />
             </div>
-            <hr style={{ margin: "50px 0px", border: "1px solid #C2D2EB" }} />
         </div>
 
     );

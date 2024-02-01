@@ -1,4 +1,5 @@
 import Hero from "../../component/landingPageComponent/Hero";
+import ProductFeatures from "../../component/landingPageComponent/ProductFeatures";
 import TabletAndMobileShowing from "../../component/landingPageComponent/TabletAndMobileShowing";
 
 const LandingPage = () => {
@@ -6,6 +7,7 @@ const LandingPage = () => {
     <div>
       <Hero />
       <TabletAndMobileShowing />
+      <ProductFeatures />
     </div>
   );
 };
