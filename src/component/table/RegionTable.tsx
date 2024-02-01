@@ -1,11 +1,13 @@
 import { Input, Select, Table } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
-import { useState } from "react";
 const columns = [
     Table.SELECTION_COLUMN,
     {
         title: "Sl. No.",
         dataIndex: "serial",
+        render: (_text: string, _record: string, index: number) => {
+            return `${index + 1}`;
+        },
         width: 150,
     },
     {
@@ -19,10 +21,8 @@ type IData = {
     name: "string",
 }[]
 
-const RegionTable = () => {
-    const [limit, setLimit] = useState<number>(10);
+const RegionTable = ({ data, limit, setLimit }: { data: IData, limit: number, setLimit: (newLimit: number) => void }) => {
 
-    const newData: IData = [];
 
     const handleChange = (value: number) => {
         setLimit(value);
@@ -82,8 +82,8 @@ const RegionTable = () => {
                                 label: 100,
                             },
                             {
-                                value: 150,
-                                label: 150,
+                                value: 500,
+                                label: 500,
                             },
                         ]}
                     />
@@ -92,7 +92,7 @@ const RegionTable = () => {
             <Table
                 columns={columns}
                 rowSelection={{}}
-                dataSource={newData}
+                dataSource={data || []}
                 pagination={{
                     position: ["none"],
                     pageSize: limit,

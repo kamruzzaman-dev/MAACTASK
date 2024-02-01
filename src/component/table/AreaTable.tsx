@@ -1,16 +1,19 @@
 import { Input, Select, Table } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
-import { useState } from "react";
 const columns = [
     Table.SELECTION_COLUMN,
     {
         title: "Sl. No.",
         dataIndex: "serial",
+        render: (_text: string, _record: string, index: number) => {
+            return `${index + 1}`;
+        },
         width: 150,
     },
     {
         title: "Region",
         dataIndex: "region",
+        render: (region: { id: string, name: string }) => <>{region?.name}</>,
         width: 200,
     },
     {
@@ -24,10 +27,8 @@ type IData = {
     name: "string",
 }[]
 
-const AreaTable = () => {
-    const [limit, setLimit] = useState<number>(10);
+const AreaTable = ({ data, limit, setLimit }: { data: IData, limit: number, setLimit: (newLimit: number) => void }) => {
 
-    const newData: IData = [];
 
     const handleChange = (value: number) => {
         setLimit(value);
@@ -77,7 +78,19 @@ const AreaTable = () => {
                             {
                                 value: 30,
                                 label: 30,
-                            }
+                            },
+                            {
+                                value: 50,
+                                label: 50,
+                            },
+                            {
+                                value: 100,
+                                label: 100,
+                            },
+                            {
+                                value: 500,
+                                label: 500,
+                            },
                         ]}
                     />
                 </div>
@@ -85,7 +98,7 @@ const AreaTable = () => {
             <Table
                 columns={columns}
                 rowSelection={{}}
-                dataSource={newData}
+                dataSource={data || []}
                 pagination={{
                     position: ["none"],
                     pageSize: limit,

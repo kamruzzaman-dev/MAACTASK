@@ -12,7 +12,7 @@ const apiAuthSlice = createApi({
       return headers;
     },
   }),
-  tagTypes: ["user"],
+  tagTypes: ["user", "area", "region"],
   endpoints: () => ({}),
 });
 

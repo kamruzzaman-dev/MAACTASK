@@ -26,7 +26,7 @@ const LoginForm = () => {
             if (res?.status === 'success') {
                 setIsLoading(false);
                 message.success("Login Successful!"),
-                    localStorage.setItem("maactask-accessToken", res?.data?.token);
+                    localStorage.setItem("maactask-accessToken", res?.token);
                 form.resetFields();
                 navigate("/dashboard/region");
             }
