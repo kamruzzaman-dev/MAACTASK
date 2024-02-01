@@ -7,7 +7,7 @@ import { useGetAllRegionQuery } from "../../../redux/api/region/regioAPI";
 import { useState } from "react";
 const { Content } = Layout;
 const RegionList = () => {
-    const [limit, setLimit] = useState<number>(10);
+    const [limit, setLimit] = useState<number>(5);
     const { data } = useGetAllRegionQuery({ limit: limit, page: 1 });
 
 
