@@ -2,7 +2,6 @@ import { useState } from "react";
 import { RightOutlined } from "@ant-design/icons";
 import { faqData } from "../../../data/faq";
 const Faq = () => {
-
     const [openAccordion, setOpenAccordion] = useState<number | null>(null);
 
     const toggleAccordion = (index: number) => {
