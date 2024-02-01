@@ -1,7 +1,11 @@
+import { Outlet } from "react-router-dom";
+import Header from "./component/shareComponent/header";
+
 function App() {
   return (
-    <div className="main-container">
-      <h1>this is zaman</h1>
+    <div>
+      <Header />
+      <Outlet />
     </div>
   );
 }
