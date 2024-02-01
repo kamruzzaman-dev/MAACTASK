@@ -23,3 +23,9 @@ code {
   max-width: 1440px;
   margin: 0 auto;
 }
+
+.auth-bg {
+  background-image: url(./assets/image/main-bg.png);
+  background-size: "cover";
+  background-position: "center";
+}
