@@ -4,7 +4,7 @@ const CommonQuestion = () => {
     return (
         <div className="common-bg" style={{ background: "#0052CC" }}>
             <div className="main-container" style={{height: 'calc(100vh - 100px)'}} >
-                <div style={{ paddingTop: "50px", width: "100%", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                <div style={{ paddingTop: "100px", width: "100%", display: "flex", flexDirection: "column", justifyContent: "center" }}>
                     <p style={{
                         textAlign: "center",
                         fontSize: "18px",
