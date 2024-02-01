@@ -24,8 +24,14 @@ code {
   margin: 0 auto;
 }
 
-.auth-bg {
+.main-bg {
   background-image: url(./assets/image/main-bg.png);
+  background-size: "cover";
+  background-position: "center";
+}
+
+.common-bg {
+  background-image: url(./assets/image/common.png);
   background-size: "cover";
   background-position: "center";
 }

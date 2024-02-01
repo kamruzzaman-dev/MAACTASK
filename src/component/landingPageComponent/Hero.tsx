@@ -2,7 +2,7 @@ import { Button } from "antd";
 
 const Hero = () => {
     return (
-        <div className="auth-bg">
+        <div className="main-bg">
             <div className="main-container"
                 style={{
                     height: 'calc(100vh - 100px)',
