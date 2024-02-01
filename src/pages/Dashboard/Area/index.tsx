@@ -1,10 +1,10 @@
 import { Breadcrumb, Button, theme, Layout } from "antd";
 import { Link } from "react-router-dom";
 import { PlusOutlined } from "@ant-design/icons";
-import RegionTable from "../../../component/table/RegionTable";
 import emptyTable from "../../../assets/image/emptyTable.png";
+import AreaTable from "../../../component/table/AreaTable";
 const { Content } = Layout;
-const RegionList = () => {
+const AreaList = () => {
     const {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
@@ -28,7 +28,7 @@ const RegionList = () => {
                             color: "#0C1D37",
                         }}
                     >
-                        Region List
+                        Area List
                     </h2>
                     <Breadcrumb
                         style={{
@@ -41,8 +41,8 @@ const RegionList = () => {
                                 title: "Geo",
                             },
                             {
-                                title: "Geo List",
-                                href: "/dashboard/region",
+                                title: "Area List",
+                                href: "/dashboard/area",
                             },
                         ]}
                     />
@@ -75,7 +75,7 @@ const RegionList = () => {
                 }}
             >
                 {data?.length !== 0 ? (
-                    <RegionTable />
+                    <AreaTable />
                 ) : (
                     <EmptyTableData />
                 )}
@@ -84,7 +84,7 @@ const RegionList = () => {
     );
 };
 
-export default RegionList;
+export default AreaList;
 
 
 const EmptyTableData = () => {
@@ -93,7 +93,7 @@ const EmptyTableData = () => {
             style={{
                 display: "flex",
                 flexDirection: "column",
-                gap: 10,
+                gap: 20,
                 justifyContent: "center",
                 alignItems: "center",
                 minHeight: 'calc(100vh - 320px)',
@@ -111,7 +111,7 @@ const EmptyTableData = () => {
                 Currently you have no Data. <br />
                 For next step first{" "}
                 <Link to={"/"} style={{ color: "#556EE6" }}>
-                    Create Region
+                    Create Area
                 </Link>
             </p>
         </div>

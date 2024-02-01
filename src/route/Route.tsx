@@ -5,6 +5,7 @@ import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
 import App from "../App";
 import RegionList from "../pages/Dashboard/Region/reginList";
+import AreaList from "../pages/Dashboard/Area";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
       },
       {
         path: "area",
-        element: <LogIn />,
+        element: <AreaList />,
       },
     ],
   },
