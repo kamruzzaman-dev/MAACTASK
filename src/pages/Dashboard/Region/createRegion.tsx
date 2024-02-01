@@ -1,5 +1,5 @@
 import { Breadcrumb } from "antd";
-import CreateRegionForm from "../../../component/form/formCreateRegion";
+import CreateRegionForm from "../../../component/Form/formCreateRegion";
 const CreateRegion = () => {
     return (
         <div>
