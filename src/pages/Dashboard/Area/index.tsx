@@ -3,13 +3,17 @@ import { Link } from "react-router-dom";
 import { PlusOutlined } from "@ant-design/icons";
 import emptyTable from "../../../assets/image/emptyTable.png";
 import AreaTable from "../../../component/table/AreaTable";
+import { useGetAllAreaQuery } from "../../../redux/api/area/areaApi";
+import { useState } from "react";
 const { Content } = Layout;
 const AreaList = () => {
+    const [limit, setLimit] = useState<number>(5);
+    const { data: AreaData } = useGetAllAreaQuery({ limit: limit, page: 1 });
+
     const {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
 
-    const data = []
     return (
         <div>
             <div
@@ -74,8 +78,8 @@ const AreaList = () => {
                     borderRadius: borderRadiusLG,
                 }}
             >
-                {data?.length !== 0 ? (
-                    <AreaTable />
+                {AreaData?.length !== 0 ? (
+                    <AreaTable data={AreaData?.area} limit={limit} setLimit={setLimit} />
                 ) : (
                     <EmptyTableData />
                 )}

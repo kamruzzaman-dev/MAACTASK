@@ -1,5 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Form, Input, Button, message } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useLoginMutation } from "../../redux/api/user/userApi";
+import { useState } from "react";
 
 type ILoginForm = {
     email: string,
@@ -8,16 +11,38 @@ type ILoginForm = {
 
 
 const LoginForm = () => {
-    const [form] = Form.useForm();
-    // Function to handle form submission
-    const handleSignUp = (values: ILoginForm) => {
-        console.log(values);
-    };
+    const [login] = useLoginMutation();
+    const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate();
 
+    const [form] = Form.useForm();
+
+    // Function to handle form submission
+    const handleSignUp = async (values: ILoginForm) => {
+        try {
+            setIsLoading(true);
+            const res: any = await login({ ...values, employeeId: values.email, }).unwrap();
+            // console.log(res);
+            if (res?.status === 'success') {
+                setIsLoading(false);
+                message.success("Login Successful!"),
+                    localStorage.setItem("maactask-accessToken", res?.token);
+                form.resetFields();
+                navigate("/dashboard/region");
+            }
+        } catch (error: any) {
+            message.error("something went wrong");
+            setIsLoading(false);
+        }
+    };
 
     const onFinishFailed = () => {
         message.error("Fill the form!");
     };
+
+    // if (isLoading) {
+    //     return <p>Loading...</p>
+    // }
 
     return (
         <div
@@ -70,7 +95,7 @@ const LoginForm = () => {
                         placeholder="Enter Your Email"
                         variant="borderless"
                         style={inputStyles}
-                        type="email"
+                        type="text"
                     />
                 </Form.Item>
 
@@ -108,7 +133,7 @@ const LoginForm = () => {
                         }}
                         htmlType="submit"
                     >
-                        Sign In
+                        {isLoading ? "Loading..." : "Sign In"}
                     </Button>
                 </Form.Item>
             </Form>

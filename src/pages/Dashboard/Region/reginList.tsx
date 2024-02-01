@@ -3,13 +3,18 @@ import { Link } from "react-router-dom";
 import { PlusOutlined } from "@ant-design/icons";
 import RegionTable from "../../../component/table/RegionTable";
 import emptyTable from "../../../assets/image/emptyTable.png";
+import { useGetAllRegionQuery } from "../../../redux/api/region/regioAPI";
+import { useState } from "react";
 const { Content } = Layout;
 const RegionList = () => {
+    const [limit, setLimit] = useState<number>(10);
+    const { data } = useGetAllRegionQuery({ limit: limit, page: 1 });
+
+
     const {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
 
-    const data = []
     return (
         <div>
             <div
@@ -74,8 +79,8 @@ const RegionList = () => {
                     borderRadius: borderRadiusLG,
                 }}
             >
-                {data?.length !== 0 ? (
-                    <RegionTable />
+                {data?.region?.length !== 0 ? (
+                    <RegionTable data={data?.region} limit={limit} setLimit={setLimit} />
                 ) : (
                     <EmptyTableData />
                 )}

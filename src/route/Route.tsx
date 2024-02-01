@@ -8,6 +8,7 @@ import RegionList from "../pages/Dashboard/Region/reginList";
 import AreaList from "../pages/Dashboard/Area";
 import CreateArea from "../pages/Dashboard/Area/createArea";
 import CreateRegion from "../pages/Dashboard/Region/createRegion";
+import ProtectedRoute from "./ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,9 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: (
-      <Dashboard />
+      <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
     ),
     children: [
       {

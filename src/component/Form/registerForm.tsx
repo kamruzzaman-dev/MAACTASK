@@ -1,5 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Form, Input, Button, Select, Checkbox, message } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSignUpMutation } from "../../redux/api/user/userApi";
+import { useState } from "react";
 
 const { Option } = Select;
 
@@ -14,12 +17,35 @@ type IRegisterForm = {
 }
 
 const RegisterForm = () => {
+  const [signUp] = useSignUpMutation();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
   const [form] = Form.useForm();
-
-
-  const handleSignUp = (values: IRegisterForm) => {
-    console.log(values);
+  const handleSignUp = async (values: IRegisterForm) => {
+    try {
+      setIsLoading(true);
+      const res: any = await signUp(values).unwrap();
+      // console.log(res);
+      if (res?.status == 'success') {
+        message.success("Sign Up Successful!"),
+          localStorage.setItem("maactask-accessToken", res?.token);
+        form.resetFields();
+        setIsLoading(false);
+        navigate("/dashboard/region");
+      } else {
+        message.error(res?.data?.message);
+      }
+    } catch (error: any) {
+      message.error("something went wrong");
+      setIsLoading(false);
+    }
   };
+
+
+  // if (isLoading) {
+  //   return <p>Loading...</p>
+  // }
 
   const onFinishFailed = () => {
     message.error("Fill the form!");
@@ -125,8 +151,8 @@ const RegisterForm = () => {
           rules={[
             {
               required: true,
-              min: 6,
-              message: "Password must be at least 6 characters long",
+              min: 8,
+              message: "Password must be at least 8 characters long",
             },
           ]}
         >
@@ -224,6 +250,7 @@ const RegisterForm = () => {
             }}
             htmlType="submit"
           >
+            {isLoading ? "Loading..." : "Create Account"}
             Create Account
           </Button>
         </Form.Item>

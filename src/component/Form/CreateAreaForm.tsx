@@ -1,16 +1,37 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button, Form, Input, Select, message } from "antd";
+import { useGetAllRegionQuery } from "../../redux/api/region/regioAPI";
+import { useAddAreaMutation } from "../../redux/api/area/areaApi";
+import { useState } from "react";
 const { Option } = Select;
 
 type IRegion = {
   region: string,
   name: string
+  _id?: string
 }
 
 const CreateAreaForm = () => {
   const [form] = Form.useForm();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { data: allRegionData } = useGetAllRegionQuery({ limit: 400, page: 1 });
+  const [addArea] = useAddAreaMutation();
 
-  const onFinish = (values: IRegion) => {
+  const onFinish = async (values: IRegion) => {
     console.log(values);
+    try {
+      setIsLoading(true);
+      const res: any = await addArea(values).unwrap();
+      // console.log(res);
+      if (res?.status === 'success') {
+        message.success("Area created successfully!");
+        setIsLoading(false);
+        form.resetFields();
+      }
+    } catch (error: any) {
+      message.error("something went wrong");
+      setIsLoading(false);
+    }
   };
 
   const onFinishFailed = () => {
@@ -72,8 +93,11 @@ const CreateAreaForm = () => {
             borderRadius: "10px",
           }}
         >
-          <Option value="HUB">HUB</Option>
-          <Option value="HUB">HUB</Option>
+          {allRegionData?.region?.map((region: IRegion) => (
+            <Option key={region?._id} value={region?._id}>
+              {region?.name}
+            </Option>
+          ))}
         </Select>
       </Form.Item>
       <p
@@ -125,7 +149,7 @@ const CreateAreaForm = () => {
           type="primary"
           htmlType="submit"
         >
-          Add Area
+          {isLoading ? "isLoading..." : "Add Area"}
         </Button>
       </Form.Item>
     </Form>
