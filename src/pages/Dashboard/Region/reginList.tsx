@@ -60,7 +60,7 @@ const RegionList = () => {
                     }}
                     type="primary"
                 >
-                    <Link to="/">
+                    <Link to="/dashboard/create-region">
                         <PlusOutlined style={{ marginRight: "4px" }} />
                         Create New
                     </Link>
@@ -110,7 +110,7 @@ const EmptyTableData = () => {
             >
                 Currently you have no Data. <br />
                 For next step first{" "}
-                <Link to={"/"} style={{ color: "#556EE6" }}>
+                <Link to={"/dashboard/create-region"} style={{ color: "#556EE6" }}>
                     Create Region
                 </Link>
             </p>

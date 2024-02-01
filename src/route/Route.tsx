@@ -6,6 +6,8 @@ import Dashboard from "../pages/Dashboard";
 import App from "../App";
 import RegionList from "../pages/Dashboard/Region/reginList";
 import AreaList from "../pages/Dashboard/Area";
+import CreateArea from "../pages/Dashboard/Area/createArea";
+import CreateRegion from "../pages/Dashboard/Region/createRegion";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
       {
         path: "area",
         element: <AreaList />,
+      },
+      {
+        path: "create-area",
+        element: <CreateArea />,
+      },
+      {
+        path: "create-region",
+        element: <CreateRegion />,
       },
     ],
   },
