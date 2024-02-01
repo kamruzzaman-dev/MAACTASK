@@ -25,10 +25,14 @@ const columns = [
 type IData = {
     serial: number | string,
     name: "string",
+    region: {
+        name: string,
+        _id: string
+    }
 }[]
 
 const AreaTable = ({ data, limit, setLimit }: { data: IData, limit: number, setLimit: (newLimit: number) => void }) => {
-
+    console.log(data)
 
     const handleChange = (value: number) => {
         setLimit(value);

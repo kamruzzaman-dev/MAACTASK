@@ -1,4 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button, Form, Input, message } from "antd";
+import { useAddRegionMutation } from "../../redux/api/region/regioAPI";
+import { useState } from "react";
 
 type IRegion = {
   name: string
@@ -6,10 +9,26 @@ type IRegion = {
 
 const CreateRegionForm = () => {
   const [form] = Form.useForm();
+  const [isLoading, setIsLoading] = useState(false);
+  const [addRegion] = useAddRegionMutation();
 
-  const onFinish = (values: IRegion) => {
-    console.log(values);
+
+  const onFinish = async (values: IRegion) => {
+    try {
+      setIsLoading(true);
+      const res: any = await addRegion(values).unwrap();
+      console.log(res);
+      if (res?.status === 'success') {
+        message.success("Region created successfully!");
+        setIsLoading(false);
+        form.resetFields();
+      }
+    } catch (error: any) {
+      message.error("something went wrong");
+      setIsLoading(false);
+    }
   };
+
 
   const onFinishFailed = () => {
     message.error("Fill the form!");
@@ -88,7 +107,7 @@ const CreateRegionForm = () => {
           type="primary"
           htmlType="submit"
         >
-          Add Region
+          {isLoading ? "isLoading..." : "Add Region"}
         </Button>
       </Form.Item>
     </Form>

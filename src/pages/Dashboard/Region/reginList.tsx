@@ -79,8 +79,8 @@ const RegionList = () => {
                     borderRadius: borderRadiusLG,
                 }}
             >
-                {data?.length !== 0 ? (
-                    <RegionTable data={data.region} limit={limit} setLimit={setLimit} />
+                {data?.region?.length !== 0 ? (
+                    <RegionTable data={data?.region} limit={limit} setLimit={setLimit} />
                 ) : (
                     <EmptyTableData />
                 )}
